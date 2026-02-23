@@ -1,0 +1,463 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7AB13008-6741-4914-A9E8-76F787998A3C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Hotel_Booking___Reservation_03</RootNamespace>
+    <AssemblyName>Hotel Booking &amp; Reservation 03</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.3.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.26.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.26.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.3.8.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.3.8\lib\net462\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.3.8.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.3.8\lib\net462\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.8.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.8\lib\net462\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.WinForms, Version=0.9.7.1, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.WinForms.0.9.7.1\lib\net45\LiveCharts.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=9.1.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.9.1.0\lib\net462\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="NuGet.Frameworks, Version=6.11.1.2, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\NuGet.Frameworks.6.11.1\lib\net472\NuGet.Frameworks.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.8.0.0\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.8.0.1\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.5.0.2\lib\net461\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="ZstdSharp, Version=0.8.0.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZstdSharp.Port.0.8.0\lib\net462\ZstdSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Archive Booking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Archive Booking.Designer.cs">
+      <DependentUpon>Archive Booking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Archive Reservation Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Archive Reservation Form.Designer.cs">
+      <DependentUpon>Archive Reservation Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Archive Reservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Archive Reservation.Designer.cs">
+      <DependentUpon>Archive Reservation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Archive Reserved Hall.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Archive Reserved Hall.Designer.cs">
+      <DependentUpon>Archive Reserved Hall.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Archive Rooms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Archive Rooms.Designer.cs">
+      <DependentUpon>Archive Rooms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Booked Action Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Booked Action Form.Designer.cs">
+      <DependentUpon>Booked Action Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Booked Add Booking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Booked Add Booking.Designer.cs">
+      <DependentUpon>Booked Add Booking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Booked.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Booked.Designer.cs">
+      <DependentUpon>Booked.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Check-In Action Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Check-In Action Form.Designer.cs">
+      <DependentUpon>Check-In Action Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Check-Out Action Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Check-Out Action Form.Designer.cs">
+      <DependentUpon>Check-Out Action Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Check-Out.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Check-Out.Designer.cs">
+      <DependentUpon>Check-Out.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Check-In Add Check-In.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Check-In Add Check-In.Designer.cs">
+      <DependentUpon>Check-In Add Check-In.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Check-In.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Check-In.Designer.cs">
+      <DependentUpon>Check-In.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Live chart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Live chart.Designer.cs">
+      <DependentUpon>Live chart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payment.Designer.cs">
+      <DependentUpon>Payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reservation Hall Action Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reservation Hall Action Form.Designer.cs">
+      <DependentUpon>Reservation Hall Action Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reservation Hall.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reservation Hall.Designer.cs">
+      <DependentUpon>Reservation Hall.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reservation.Designer.cs">
+      <DependentUpon>Reservation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reservation Action Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reservation Action Form.Designer.cs">
+      <DependentUpon>Reservation Action Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reservation Add Reserve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reservation Add Reserve.Designer.cs">
+      <DependentUpon>Reservation Add Reserve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Room List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Room List.Designer.cs">
+      <DependentUpon>Room List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Staff Check in.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff Check in.Designer.cs">
+      <DependentUpon>Staff Check in.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Staff Check out.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff Check out.Designer.cs">
+      <DependentUpon>Staff Check out.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Staff Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff Dashboard.Designer.cs">
+      <DependentUpon>Staff Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Staff Reservation Hall.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff Reservation Hall.Designer.cs">
+      <DependentUpon>Staff Reservation Hall.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Management.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Management.Designer.cs">
+      <DependentUpon>User Management.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Archive Booking.resx">
+      <DependentUpon>Archive Booking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Archive Reservation Form.resx">
+      <DependentUpon>Archive Reservation Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Archive Reservation.resx">
+      <DependentUpon>Archive Reservation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Archive Reserved Hall.resx">
+      <DependentUpon>Archive Reserved Hall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Archive Rooms.resx">
+      <DependentUpon>Archive Rooms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Booked Action Form.resx">
+      <DependentUpon>Booked Action Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Booked Add Booking.resx">
+      <DependentUpon>Booked Add Booking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Booked.resx">
+      <DependentUpon>Booked.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Check-In Action Form.resx">
+      <DependentUpon>Check-In Action Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Check-Out Action Form.resx">
+      <DependentUpon>Check-Out Action Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Check-Out.resx">
+      <DependentUpon>Check-Out.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Check-In Add Check-In.resx">
+      <DependentUpon>Check-In Add Check-In.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Check-In.resx">
+      <DependentUpon>Check-In.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Live chart.resx">
+      <DependentUpon>Live chart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payment.resx">
+      <DependentUpon>Payment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Reservation Hall Action Form.resx">
+      <DependentUpon>Reservation Hall Action Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reservation Hall.resx">
+      <DependentUpon>Reservation Hall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reservation.resx">
+      <DependentUpon>Reservation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reservation Action Form.resx">
+      <DependentUpon>Reservation Action Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reservation Add Reserve.resx">
+      <DependentUpon>Reservation Add Reserve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Room List.resx">
+      <DependentUpon>Room List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff Check in.resx">
+      <DependentUpon>Staff Check in.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff Check out.resx">
+      <DependentUpon>Staff Check out.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff Dashboard.resx">
+      <DependentUpon>Staff Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff Reservation Hall.resx">
+      <DependentUpon>Staff Reservation Hall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Management.resx">
+      <DependentUpon>User Management.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashboard icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reservation icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\black line icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\booking icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add user icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check in icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check out icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\room list icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user management icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\empty picture icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\room icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\payment icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\log out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4034229.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yellow circle.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\log out1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\log out2.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

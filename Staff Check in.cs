@@ -1,0 +1,147 @@
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Hotel_Booking___Reservation_03
+{
+    public partial class Staff_Check_in : Form
+    {
+        private const string connectionString = "Server=localhost;Database=Hotel;Uid=root;Pwd=;";
+        public Staff_Check_in()
+        {
+            InitializeComponent();
+            LoadCheckInData();
+            txtSearch.TextChanged += txtSearch_TextChanged;
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string searchKeyword = txtSearch.Text.Trim();
+            LoadCheckInData(searchKeyword);
+        }
+
+        private void LoadCheckInData(string searchKeyword = "")
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT id, Category, Room, Reference FROM checkin";
+
+                    if (!string.IsNullOrEmpty(searchKeyword))
+                    {
+                        query += " WHERE Category LIKE @keyword OR Room LIKE @keyword OR Reference LIKE @keyword";
+                    }
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        if (!string.IsNullOrEmpty(searchKeyword))
+                        {
+                            cmd.Parameters.AddWithValue("@keyword", $"%{searchKeyword}%");
+                        }
+
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            adapter.Fill(dt);
+                            dtgCheckIn.DataSource = dt;
+
+                            if (!dtgCheckIn.Columns.Contains("Action"))
+                            {
+                                DataGridViewButtonColumn actionColumn = new DataGridViewButtonColumn
+                                {
+                                    Name = "Action",
+                                    Text = "View",
+                                    UseColumnTextForButtonValue = true
+                                };
+                                dtgCheckIn.Columns.Add(actionColumn);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error loading data: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+
+        private void LoadCheckInData()
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT id, Category, Room, Reference FROM checkin";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            adapter.Fill(dt);
+                            dtgCheckIn.DataSource = dt;
+
+
+                            if (!dtgCheckIn.Columns.Contains("Action"))
+                            {
+                                DataGridViewButtonColumn actionColumn = new DataGridViewButtonColumn
+                                {
+                                    Name = "Action",
+                                    Text = "View",
+                                    UseColumnTextForButtonValue = true
+                                };
+                                dtgCheckIn.Columns.Add(actionColumn);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading data: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void Staff_Check_in_Load(object sender, EventArgs e)
+        {
+            LoadCheckInData();
+        }
+
+        private void dtgCheckIn_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnReservation_Click(object sender, EventArgs e)
+        {
+            UserDashboard quiz2Form = new UserDashboard();
+            quiz2Form.Show();
+            this.Hide();
+
+        }
+
+        private void btnCheckOut_Click(object sender, EventArgs e)
+        {
+            Staff_Check_out quiz2Form = new Staff_Check_out();
+            quiz2Form.Show();
+            this.Hide();
+        }
+
+        private void Logout_Click(object sender, EventArgs e)
+        {
+            Login quiz2Form = new Login();
+            quiz2Form.Show();
+            this.Hide();
+        }
+    }
+}
